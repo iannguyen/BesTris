@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" charset="utf-8">
+  <meta charset="utf-8">
+  <title>Tetrisss Yayyy</title>
+
+</head>
+
+<body>
+
+  <div id="game">
+    <canvas id="gameCanvas" width="320" height="640"></canvas>
+  </div>
+
+  <div id="score">
+    <p>
+      Lines:
+      <span id="lines"></span>
+    </p>
+  </div>
+
+  <script type="text/javascript" src="js/view.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/board.js"></script>
+  <script type="text/javascript" src="js/pieces.js"></script>
+  <script type="text/javascript" src="js/BulkImageLoader.js"></script>
+
+  <script type="text/javascript">
+        var view = new Tetris.View();
+        window.onload = view.onReady();
+  </script>
+
+</body>
+
+</html>
