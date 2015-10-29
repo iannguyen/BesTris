@@ -22,7 +22,7 @@ var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, img
 
       previousTime = currentTime = 0;
 
-      document.onkeydown = getInput;
+      // document.onkeydown = getInput;
     };
 
     View.prototype.onImagesLoaded = function(e) {

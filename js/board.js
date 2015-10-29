@@ -10,14 +10,12 @@
   };
 
   Board.prototype.clear = function () {
-    var grid = [];
+
     for (var x = 0; x < ROWS; x++) {
-      grid[x] = [];
       for (var y = 0; y < COLUMNS; y++) {
-        grid[x].push(0);
+        this.grid[x][y] = 0;
       }
     }
-    this.grid = grid;
   };
 
   Board.prototype.initBoard = function(canvas) {

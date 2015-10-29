@@ -6,6 +6,7 @@
 
   var Game = window.Tetris.Game = function(board) {
     this.board = board;
+    // this.pieces = [];
   };
 
   Game.prototype.startGame = function() {
@@ -22,31 +23,36 @@
     });
 
     window.requestAnimationFrame = raf;
-    var move = setInterval(this.tick, INTERVAL);
+    var gogo = setInterval(app.game.tick, 500);
+    // window.requestAnimationFrame(app.game.tick);
   };
 
   Game.prototype.tick = function() {
-    app.game.board.clear();
+    // currentTime = new Date().getTime();
 
-    if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
-      currentPiece.gridy += 1;
-    }
-      app.game.placePiece(currentPiece);
-      // currentPiece = randomPiece();
+    // if (currentTime - previousTime > 500) {
+      if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
+        currentPiece.gridy += 1;
+      } else {
+        app.game.placePiece(currentPiece);
+        currentPiece = randomPiece();
+      }
+      // previousTime = currentTime;
     // }
-
     console.log(currentPiece.gridy);
 
   	ctx.clearRect(0, 0, 320, 640);
-
     app.game.drawBoard();
     app.game.drawPiece(currentPiece);
+
+    // requestAnimationFrame(app.game.tick);
   };
 
   Game.prototype.placePiece = function(piece) {
     var x = piece.gridx;
     var y = piece.gridy;
     var state = piece.currentState;
+
     for (var r = 0, width = piece.states[state].length; r < width; r++) {
       for (var c = 0, height = piece.states[state][r].length; c < height; c++) {
         if (piece.states[state][r][c] === 1 && y >= 0) {
@@ -75,15 +81,15 @@
     var drawY = piece.gridy;
     var state = piece.currentState;
 
-    for (var i = 0, width = piece.states[state]; i < width; i++) {
-      for (var j = 0, height = piece.states[state][i]; j < length; j++) {
-        if (this.board.grid[x][y] === 1 && drawY >= 0) {
+    for (var i = 0, width = piece.states[state].length; i < width; i++) {
+      for (var j = 0, height = piece.states[state][i].length; j < length; j++) {
+        if (piece.states[state][i][j] === 1 && drawY >= 0) {
           ctx.drawImage(blockImg, piece.color * SIZE, 0, SIZE, SIZE, drawX * SIZE, drawY * SIZE, SIZE, SIZE);
         }
-        i++;
+        drawX += 1;
       }
       drawX = piece.gridx;
-      j++;
+      drawY += 1;
     }
   };
 
