@@ -22,14 +22,14 @@ var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, img
 
       previousTime = currentTime = 0;
 
-      // document.onkeydown = getInput;
+      document.onkeydown = getInput;
     };
 
     View.prototype.onImagesLoaded = function(e) {
       blockImg = imgLoader.getImageAtIndex(0);
       bgImg = imgLoader.getImageAtIndex(1);
       gameOverImg = imgLoader.getImageAtIndex(2);
-      var app = new Tetris.App();
+      app = new Tetris.App();
       app.setup(canvas);
     };
 

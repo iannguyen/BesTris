@@ -1,6 +1,7 @@
-var ROWS = 10;
-var COLUMNS = 20;
+var ROWS = 20;
+var COLUMNS = 10;
 var SIZE = 32;
+var INTERVAL = 500;
 
 (function() {
   'use strict';
@@ -12,11 +13,11 @@ var SIZE = 32;
 
   App.prototype.setup = function(canvas) {
     console.log('app starting');
-
     this.board = new Tetris.Board(canvas);
-    this.game = new Tetris.Game();
-    this.game.startGame(this.board);
-    debugger;
+    this.game = new Tetris.Game(this.board);
+    this.game.startGame();
+
+    console.log('app finished');
   };
 
 }());
