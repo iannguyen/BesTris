@@ -49,7 +49,6 @@
         i = width;
       }
     }
-    console.log(valid);
     return valid;
   };
 
@@ -58,9 +57,9 @@
     var y = piece.gridy;
     var state = piece.currentState;
 
-    var width = piece.states[state].length
+    var width = piece.states[state].length;
     for (var r = 0; r < width; r++) {
-      var height = piece.states[state][r].length
+      var height = piece.states[state][r].length;
       for (var c = 0; c < height; c++) {
         if (piece.states[state][r][c] === 1 && y >= 0) {
           this.grid[y][x] = (piece.color + 1);
@@ -70,10 +69,42 @@
       x = piece.gridx;
       y += 1;
     }
+
+  app.game.board.lineCheck();
   };
 
-  Board.prototype.checkLines = function() {
-    
+  Board.prototype.lineCheck = function() {
+    var gridWidth = COLUMNS - 1;
+    var gridHeight = ROWS - 1;
+    var fullRowCount = 0;
+
+    for (var x = gridHeight; x >= 0; x--) {
+      var fullRow = true;
+      for (var y = gridWidth; y >= 0; y--) {
+        // debugger;
+        if(this.grid[x][y] === 0) {
+          fullRow = false;
+          // break;
+        }
+      }
+      if(fullRow) {
+        this.clearLine(x);
+        x++;
+      }
+      fullRow = true;
+    }
   };
 
+
+  Board.prototype.clearLine = function (rowNumber) {
+    var gridWidth = COLUMNS - 1;
+    var rowLine = rowNumber;
+
+    while (rowLine > 0) {
+      for (var y = gridWidth; y >= 0; y--) {
+        this.grid[rowLine][y] = this.grid[rowLine-1][y];
+      }
+      rowLine -= 1;
+    }
+  };
 }());

@@ -34,12 +34,10 @@
         currentPiece.gridy += 1;
       } else {
         app.game.board.placePiece(currentPiece);
-        currentPiece = randomPiece();
+        currentPiece = getLinePiece();
       }
       previousTime = currentTime;
     }
-
-    console.log(currentPiece.gridy);
 
   	ctx.clearRect(0, 0, 320, 640);
     app.game.drawBoard();
@@ -47,7 +45,7 @@
 
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);
-      this.playerInput;
+      // this.playerInput;
     }
   };
 
@@ -64,8 +62,8 @@
       case 37:
       if(app.game.board.validMove(currentPiece.gridx-1, currentPiece.gridy, currentPiece.currentState)) {
         currentPiece.gridx -= 1;
-        break;
       }
+        break;
       case 38:
       var newState;
       if(currentPiece.currentState === currentPiece.states.length - 1) {
@@ -75,13 +73,14 @@
       }
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy, newState)) {
         currentPiece.currentState = newState;
-        currentPiece.gridx--
+        // currentPiece.gridx--;
       }
+      break;
       case 39:
       if(app.game.board.validMove(currentPiece.gridx+1, currentPiece.gridy, currentPiece.currentState)) {
         currentPiece.gridx += 1;
-        break;
       }
+        break;
       case 40:
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy+1, currentPiece.currentState)) {
         currentPiece.gridy += 1;
