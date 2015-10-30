@@ -53,7 +53,7 @@ ReversedLPiece = function() {
     [1, 1, 1]
   ];
 
-  this.states = [this.state1, this.state2, this.state3, this.state4, ];
+  this.states = [this.state1, this.state2, this.state3, this.state4 ];
 
   this.currentState = 0;
 
@@ -87,7 +87,7 @@ LinePiece = function() {
     [1, 1, 1, 1]
   ];
 
-  this.states = [this.state1, this.state];
+  this.states = [this.state1, this.state2];
   this.currentState = 0;
   this.gridx = 4;
   this.gridy = -2;
@@ -131,7 +131,7 @@ ZPiece = function() {
     [0, 1, 1]
   ];
 
-  this.state1 = [
+  this.state2 = [
     [0, 1],
     [1, 1],
     [1, 0]
@@ -152,7 +152,7 @@ ReversedZPiece = function() {
     [1, 1, 0]
   ];
 
-  this.state1 = [
+  this.state2 = [
     [1, 0],
     [1, 1],
     [0, 1]

@@ -9,15 +9,6 @@
     console.log('board initialized');
   };
 
-  // Board.prototype.clear = function () {
-  //
-  //   for (var x = 0; x < ROWS; x++) {
-  //     for (var y = 0; y < COLUMNS; y++) {
-  //       this.grid[x][y] = 0;
-  //     }
-  //   }
-  // };
-
   Board.prototype.initBoard = function() {
     var grid = [];
     for (var x = 0; x < ROWS; x++) {
@@ -58,6 +49,23 @@
     }
     console.log(valid);
     return valid;
+  };
+
+  Board.prototype.placePiece = function(piece) {
+    var x = piece.gridx;
+    var y = piece.gridy;
+    var state = piece.currentState;
+
+    for (var r = 0, width = piece.states[state].length; r < width; r++) {
+      for (var c = 0, height = piece.states[state][r].length; c < height; c++) {
+        if (piece.states[state][r][c] === 1 && y >= 0) {
+          this.grid[y][x] = (piece.color + 1);
+        }
+        x += 1;
+      }
+      x = piece.gridx;
+      y += 1;
+    }
   };
 
 }());
