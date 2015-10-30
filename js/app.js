@@ -13,8 +13,8 @@ var INTERVAL = 500;
 
   App.prototype.setup = function(canvas) {
     console.log('app starting');
-    this.board = new Tetris.Board(canvas);
-    this.game = new Tetris.Game(this.board);
+    var board = new Tetris.Board();
+    this.game = new Tetris.Game(board);
     this.game.startGame();
 
     console.log('app finished');

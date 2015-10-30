@@ -9,16 +9,16 @@
     console.log('board initialized');
   };
 
-  Board.prototype.clear = function () {
+  // Board.prototype.clear = function () {
+  //
+  //   for (var x = 0; x < ROWS; x++) {
+  //     for (var y = 0; y < COLUMNS; y++) {
+  //       this.grid[x][y] = 0;
+  //     }
+  //   }
+  // };
 
-    for (var x = 0; x < ROWS; x++) {
-      for (var y = 0; y < COLUMNS; y++) {
-        this.grid[x][y] = 0;
-      }
-    }
-  };
-
-  Board.prototype.initBoard = function(canvas) {
+  Board.prototype.initBoard = function() {
     var grid = [];
     for (var x = 0; x < ROWS; x++) {
       grid[x] = [];

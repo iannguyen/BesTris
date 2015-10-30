@@ -23,29 +23,32 @@
     });
 
     window.requestAnimationFrame = raf;
-    var gogo = setInterval(app.game.tick, 500);
-    // window.requestAnimationFrame(app.game.tick);
+    // var gogo = setInterval(app.game.tick, 500);
+    window.requestAnimationFrame(app.game.tick);
   };
 
   Game.prototype.tick = function() {
-    // currentTime = new Date().getTime();
+    currentTime = new Date().getTime();
 
-    // if (currentTime - previousTime > 500) {
+    if (currentTime - previousTime > 100) {
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
         currentPiece.gridy += 1;
       } else {
         app.game.placePiece(currentPiece);
         currentPiece = randomPiece();
       }
-      // previousTime = currentTime;
-    // }
+      previousTime = currentTime;
+    }
+
     console.log(currentPiece.gridy);
 
   	ctx.clearRect(0, 0, 320, 640);
     app.game.drawBoard();
     app.game.drawPiece(currentPiece);
 
-    // requestAnimationFrame(app.game.tick);
+    if (gameOver === false) {
+      requestAnimationFrame(app.game.tick);
+    }
   };
 
   Game.prototype.placePiece = function(piece) {
@@ -77,14 +80,19 @@
   };
 
   Game.prototype.drawPiece = function(piece) {
+    debugger;
     var drawX = piece.gridx;
     var drawY = piece.gridy;
     var state = piece.currentState;
 
     for (var i = 0, width = piece.states[state].length; i < width; i++) {
-      for (var j = 0, height = piece.states[state][i].length; j < length; j++) {
+      for (var j = 0, height = piece.states[state][i].length; j < height; j++) {
+        debugger;
         if (piece.states[state][i][j] === 1 && drawY >= 0) {
-          ctx.drawImage(blockImg, piece.color * SIZE, 0, SIZE, SIZE, drawX * SIZE, drawY * SIZE, SIZE, SIZE);
+          debugger;
+  				ctx.drawImage(blockImg,
+                        piece.color * SIZE, 0, SIZE, SIZE,
+                        drawX * SIZE, drawY * SIZE, SIZE, SIZE);
         }
         drawX += 1;
       }
