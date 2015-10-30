@@ -54,6 +54,13 @@
   Game.prototype.playerInput = function(e) {
     e.preventDefault();
     switch(e.keyCode) {
+      case 32:
+      var rowLine = currentPiece.gridy;
+      while(app.game.board.validMove(currentPiece.gridx, rowLine + 1, currentPiece.currentState)) {
+        rowLine += 1;
+      }
+      currentPiece.gridy = rowLine;
+      break;
       case 37:
       if(app.game.board.validMove(currentPiece.gridx-1, currentPiece.gridy, currentPiece.currentState)) {
         currentPiece.gridx -= 1;
@@ -64,7 +71,7 @@
       if(currentPiece.currentState === currentPiece.states.length - 1) {
         newState = 0;
       } else {
-        newState = currentPiece.currentState + 1;
+        newState = currentPiece.currentState+1;
       }
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy, newState)) {
         currentPiece.currentState = newState;
