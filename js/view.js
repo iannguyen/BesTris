@@ -10,20 +10,15 @@ var app, canvas, ctx, blockImg, bgImg, currentPiece, imgLoader, previousTime, cu
   };
 
     View.prototype.onReady = function() {
-      imgLoader = new BulkImageLoader();
-      imgLoader.addImage("blocks.png");
-      imgLoader.addImage("bg.png", "bg");
-      imgLoader.onReadyCallback = this.onImagesLoaded;
-      imgLoader.loadImages();
+      bgImg = document.getElementById("background");
+      blockImg = document.getElementById("blocks");
       canvas = document.getElementById("gameCanvas");
       ctx = canvas.getContext("2d");
-
       previousTime = currentTime = 0;
+      this.setup();
     };
 
-    View.prototype.onImagesLoaded = function(e) {
-      blockImg = imgLoader.getImageAtIndex(0);
-      bgImg = imgLoader.getImageAtIndex(1);
+    View.prototype.setup = function() {
       app = new Tetris.App();
       app.setup(canvas);
     };
