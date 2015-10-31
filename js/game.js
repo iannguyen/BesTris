@@ -34,7 +34,7 @@
         currentPiece.gridy += 1;
       } else {
         app.game.board.placePiece(currentPiece);
-        currentPiece = getLinePiece();
+        currentPiece = randomPiece();
       }
       previousTime = currentTime;
     }
@@ -45,7 +45,6 @@
 
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);
-      // this.playerInput;
     }
   };
 
@@ -53,11 +52,16 @@
     e.preventDefault();
     switch(e.keyCode) {
       case 32:
+      if (currentPiece.gridy < 0) {
+        return;
+      } else {
       var rowLine = currentPiece.gridy;
       while(app.game.board.validMove(currentPiece.gridx, rowLine + 1, currentPiece.currentState)) {
         rowLine += 1;
       }
       currentPiece.gridy = rowLine;
+      previousTime = currentTime;
+      }
       break;
       case 37:
       if(app.game.board.validMove(currentPiece.gridx-1, currentPiece.gridy, currentPiece.currentState)) {
@@ -73,7 +77,8 @@
       }
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy, newState)) {
         currentPiece.currentState = newState;
-        // currentPiece.gridx--;
+      } else {
+        app.game.wallKick(currentPiece, newState);
       }
       break;
       case 39:
@@ -116,6 +121,23 @@
       }
       drawX = piece.gridx;
       drawY += 1;
+    }
+  };
+
+  Game.prototype.wallKick = function (piece, newState) {
+    var shift = 0;
+    if (piece.gridy < 19 && piece.gridx > 0) {
+      while(shift < COLUMNS) {
+        if(app.game.board.validMove(currentPiece.gridx-shift, currentPiece.gridy, newState)) {
+          piece.gridx -= shift;
+          piece.currentState = newState;
+          break;
+        } else {
+          shift++;
+        }
+      }
+    } else {
+      return;
     }
   };
 
