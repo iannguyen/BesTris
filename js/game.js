@@ -29,14 +29,20 @@
   Game.prototype.tick = function() {
     currentTime = new Date().getTime();
 
-    if (currentTime - previousTime > SPEED) {
-      if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
-        currentPiece.gridy += 1;
-      } else {
-        app.game.board.placePiece(currentPiece);
-        currentPiece = randomPiece();
+    if (dropped) {
+      app.game.board.placePiece(currentPiece);
+      dropped = false;
+      currentPiece = randomPiece();
+    } else {  
+      if (currentTime - previousTime > SPEED) {
+        if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
+          currentPiece.gridy += 1;
+        } else {
+          app.game.board.placePiece(currentPiece);
+          currentPiece = randomPiece();
+        }
+        previousTime = currentTime;
       }
-      previousTime = currentTime;
     }
 
   	ctx.clearRect(0, 0, 320, 640);
@@ -60,7 +66,8 @@
         rowLine += 1;
       }
       currentPiece.gridy = rowLine;
-      previousTime = currentTime;
+      // debugger;
+      dropped = true;
       }
       break;
       case 37:

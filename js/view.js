@@ -1,4 +1,4 @@
-var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, imgLoader, previousTime, currentTime, gameOver, lineView, currentLines;
+var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, imgLoader, previousTime, currentTime, gameOver, lineView, currentLines, dropped;
 
 (function() {
   'use strict';
@@ -21,8 +21,6 @@ var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, img
       lineView = document.getElementById("lines");
 
       previousTime = currentTime = 0;
-
-      // document.onkeydown = getInput;
     };
 
     View.prototype.onImagesLoaded = function(e) {
