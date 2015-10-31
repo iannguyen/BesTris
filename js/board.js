@@ -6,7 +6,6 @@
 
   var Board = window.Tetris.Board = function() {
     this.grid = this.initBoard();
-    console.log('board initialized');
   };
 
   Board.prototype.initBoard = function() {
@@ -25,8 +24,10 @@
     var newxpos = x;
     var newypos = y;
 
-    for (var i = 0, width = currentPiece.states[state].length; i < width; i++) {
-      for (var j = 0, height = currentPiece.states[state][i].length; j < height; j++) {
+    var width = currentPiece.states[state].length;
+    for (var i = 0; i < width; i++) {
+      var height = currentPiece.states[state][i].length;
+      for (var j = 0; j < height; j++) {
         if(newxpos < 0 || newxpos >= COLUMNS) {
           valid = false;
           i = width;
@@ -97,6 +98,11 @@
       fullRow = true;
     }
     app.game.updateScore(fullRowCount);
+    if(fullRowCount === 0) {
+      $("#combo").text("");
+    } else {
+      $("#combo").text(fullRowCount + " x COMBO!!!");
+    }
   };
 
   Board.prototype.clearLine = function (rowNumber) {

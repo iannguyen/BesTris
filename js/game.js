@@ -12,7 +12,6 @@
   };
 
   Game.prototype.startGame = function() {
-    console.log('game starting');
     gameOver = false;
     currentPiece = randomPiece();
     $(document).on("keydown", function(e) {
@@ -32,16 +31,16 @@
   };
 
   Game.prototype.updateScore = function (lineCount) {
-    app.game.lines += lineCount;
-    if (lineCount > 0 && app.game.lines > 0 && app.game.lines % 5 === 0) {
-      debugger;
-      app.game.speed /= 1.25;
+    if (lineCount > 0 &&
+       (lineCount + (app.game.lines % 5)) >= 5) {
+      app.game.speed /= 1.2;
     }
     if (lineCount > 1) {
       app.game.score += (1000 * lineCount) + (500 * (lineCount-1));
     } else {
       app.game.score += 250;
     }
+    app.game.lines += lineCount;
   };
 
   Game.prototype.tick = function() {
@@ -71,7 +70,7 @@
 
     $("#points").text(app.game.score.toString());
     $("#lines").text(app.game.lines.toString());
-    $("#speed").text(app.game.speed.toString() + "ms");
+    $("#speed").text(app.game.speed.toFixed(2) + "ms");
 
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);

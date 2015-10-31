@@ -1,4 +1,4 @@
-var app, canvas, ctx, blockImg, bgImg, currentPiece, imgLoader, previousTime, currentTime, gameOver, lineView, currentLines, dropped;
+var app, canvas, ctx, blockImg, bgImg, currentPiece, imgLoader, previousTime, currentTime, gameOver, lineView, dropped;
 
 (function() {
   'use strict';

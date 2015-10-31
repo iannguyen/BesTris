@@ -35,7 +35,7 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	color: white;
-	font-size: 25px;
+	font-size: 35px;
 	z-index: 501;
 	position: absolute;
 	left: 0;
@@ -48,7 +48,7 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	color: white;
-	font-size: 25px;
+	font-size: 35px;
 	z-index: 501;
 	position: absolute;
 	left: 0;
@@ -103,4 +103,14 @@ body {
 #speed {
 	color: lightblue;
 	font-size: 30px;
+}
+#combo {
+	color: gold;
+	font-size: 50px;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	right: 0;
+
+	margin: auto;
 }
