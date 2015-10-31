@@ -6,6 +6,9 @@
 
   var Game = window.Tetris.Game = function(board) {
     this.board = board;
+    this.score = 0;
+    this.lines = 0;
+    this.speed = 500;
   };
 
   Game.prototype.startGame = function() {
@@ -28,6 +31,19 @@
     window.requestAnimationFrame(app.game.tick);
   };
 
+  Game.prototype.updateScore = function (lineCount) {
+    app.game.lines += lineCount;
+    if (lineCount > 0 && app.game.lines > 0 && app.game.lines % 5 === 0) {
+      debugger;
+      app.game.speed /= 1.25;
+    }
+    if (lineCount > 1) {
+      app.game.score += (1000 * lineCount) + (500 * (lineCount-1));
+    } else {
+      app.game.score += 250;
+    }
+  };
+
   Game.prototype.tick = function() {
     currentTime = new Date().getTime();
 
@@ -36,7 +52,7 @@
       dropped = false;
       currentPiece = randomPiece();
     } else {
-      if (currentTime - previousTime > SPEED) {
+      if (currentTime - previousTime > app.game.speed) {
         if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
           currentPiece.gridy += 1;
         } else {
@@ -52,6 +68,10 @@
     app.game.drawBoard();
     ctx.globalAlpha = 1;
     app.game.drawPiece(currentPiece);
+
+    $("#points").text(app.game.score.toString());
+    $("#lines").text(app.game.lines.toString());
+    $("#speed").text(app.game.speed.toString() + "ms");
 
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);

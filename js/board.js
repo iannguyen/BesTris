@@ -91,10 +91,12 @@
       }
       if(fullRow) {
         this.clearLine(x);
+        fullRowCount++;
         x++;
       }
       fullRow = true;
     }
+    app.game.updateScore(fullRowCount);
   };
 
   Board.prototype.clearLine = function (rowNumber) {

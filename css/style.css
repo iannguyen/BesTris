@@ -1,11 +1,12 @@
-
 p.hidden {
 	display: none;
 	z-index: 0;
 }
+
 html * {
 	font-family: 'Jura', sans-serif;
 }
+
 body {
 	object-fit: cover;
 	object-position: center;
@@ -15,15 +16,17 @@ body {
 }
 
 #game {
-	top: 50%;
+	top: 40%;
 	transform: translateY(-50%);
-	position: relative;
+	position: absolute;
 	background-color: rgb(25,25,25);
 	width:320px;
 	height:640px;
 	margin:0 auto;
 	border: 25px ridge rgb(50,50,50);
 	z-index: 500;
+	left: 0;
+	right: 0;
 }
 
 .game-start {
@@ -52,15 +55,32 @@ body {
 	right: 0;
 }
 
-#score {
+#info {
+	float: right;
+	font-size: 25px;
+	color: white;
+	width: 320px;
+	margin: 0 auto;
+	text-align: center;
+	width: 40%;
+	top: 30%;
+	position: relative;
+	transform: translateY(-50%);
+}
+
+#info ul {
+	list-style-type: none;
+}
+
+#stats {
 	float: left;
-	font-size: 18pt;
+	font-size: 25px;
 	color: #fefefe;
 	width: 320px;
 	margin: 0 auto;
 	text-align: center;
-	width: 35%;
-	top: 50%;
+	width: 40%;
+	top: 30%;
 	position: relative;
 	transform: translateY(-50%);
 }
@@ -70,4 +90,17 @@ body {
 	color: #fefefe;
 	width: 320px;
 	margin: 0 auto;
+}
+
+#points {
+	color: lightgreen;
+	font-size: 30px;
+}
+#lines {
+	color: yellow;
+	font-size: 30px;
+}
+#speed {
+	color: lightblue;
+	font-size: 30px;
 }

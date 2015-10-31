@@ -1,4 +1,4 @@
-var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, imgLoader, previousTime, currentTime, gameOver, lineView, currentLines, dropped;
+var app, canvas, ctx, blockImg, bgImg, currentPiece, imgLoader, previousTime, currentTime, gameOver, lineView, currentLines, dropped;
 
 (function() {
   'use strict';
@@ -13,13 +13,10 @@ var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, img
       imgLoader = new BulkImageLoader();
       imgLoader.addImage("blocks.png");
       imgLoader.addImage("bg.png", "bg");
-      imgLoader.addImage("over.png", "gameover");
       imgLoader.onReadyCallback = this.onImagesLoaded;
       imgLoader.loadImages();
       canvas = document.getElementById("gameCanvas");
       ctx = canvas.getContext("2d");
-      ctx.globalAlpha = 0.75;
-      lineView = document.getElementById("lines");
 
       previousTime = currentTime = 0;
     };
@@ -27,7 +24,6 @@ var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, img
     View.prototype.onImagesLoaded = function(e) {
       blockImg = imgLoader.getImageAtIndex(0);
       bgImg = imgLoader.getImageAtIndex(1);
-      gameOverImg = imgLoader.getImageAtIndex(2);
       app = new Tetris.App();
       app.setup(canvas);
     };

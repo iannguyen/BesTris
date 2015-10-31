@@ -12,7 +12,7 @@
 
 <body>
 
-  <div id="score">
+  <div id="stats">
     <p>
       Score:
       <span id="points"></span>
@@ -22,19 +22,40 @@
       Lines Cleared:
       <span id="lines"></span>
     </p>
+    <br/>
+    <p>
+      Current Speed:
+      <span id="speed"></span>
+    </p>
   </div>
+
 
   <div id="game">
     <p id="game-start" class="game-start">Press ENTER to START</p>
-    <p id="game-retry" class="game-retry hidden">Game Over :( Press ENTER to play Again!</p>
+    <p id="game-retry" class="game-retry hidden">Game Over :( <br/> Press ENTER to play Again!</p>
     <canvas id="gameCanvas" width="320" height="640">
     </canvas>
   </div>
 
-  <p>
-    Next Piece:
-    <span id="next-piece"></span>
-  </p>
+  <div id="info">
+    <ul>
+      <li>UP ARROW: &nbsp ROTATE</li>
+      <li>LEFT, DOWN, RIGHT ARROW: &nbsp MOVE</li>
+      <li>SPACEBAR: &nbsp DROP</li>
+      <br>
+      <li>Each piece is 250 points</li>
+      <br>
+      <li>One cleared line is 1000 points</li>
+      <br>
+      <li>Combo lines for an additional 500 points per line</li>
+      <br>
+      <li>Speed increases every 5 cleared lines</li>
+      <br>
+      <br>
+      <li>GL HF</li>
+    </ul>
+  <div>
+
 </div>
 
   <script src="js/jquery-1.9.1.js"></script>

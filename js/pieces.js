@@ -27,7 +27,7 @@ LPiece = function() {
 
   this.color = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 ReversedLPiece = function() {
@@ -59,7 +59,7 @@ ReversedLPiece = function() {
 
   this.color = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 BlockPiece = function() {
@@ -72,7 +72,7 @@ BlockPiece = function() {
   this.currentState = 0;
   this.color = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 LinePiece = function() {
@@ -90,7 +90,7 @@ LinePiece = function() {
   this.states = [this.state1, this.state2];
   this.currentState = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 TPiece = function() {
@@ -122,7 +122,7 @@ TPiece = function() {
 
   this.color = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 ZPiece = function() {
@@ -143,7 +143,7 @@ ZPiece = function() {
 
   this.color = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 ReversedZPiece = function() {
@@ -164,7 +164,7 @@ ReversedZPiece = function() {
 
   this.color = 0;
   this.gridx = 4;
-  this.gridy = -1;
+  this.gridy = -2;
 };
 
 randomPiece = function() {

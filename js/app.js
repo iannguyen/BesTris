@@ -1,7 +1,6 @@
 var ROWS = 20;
 var COLUMNS = 10;
 var SIZE = 32;
-var SPEED = 500;
 
 (function() {
   'use strict';
