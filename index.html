@@ -25,7 +25,9 @@
   </div>
 
   <div id="game">
-    <canvas id="gameCanvas" width="320" height="640"></canvas>
+    <p id="game-text">Press ENTER to START</p>
+    <canvas id="gameCanvas" width="320" height="640">
+    </canvas>
   </div>
 
   <p>
@@ -45,6 +47,7 @@
   <script type="text/javascript">
     $("body").keypress(function(e) {
       if(e.which === 13) {
+        $("#game-text").addClass("hidden");
         var view = new Tetris.View();
         window.onload = view.onReady();
       }

@@ -20,6 +20,20 @@ body {
 	border: 25px ridge rgb(50,50,50);
 }
 
+#game-text {
+	text-align: center;
+	margin: auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	color: white;
+	font-size: 25px;
+}
+
+.hidden {
+	display: none;
+}
+
 #score {
 	float: left;
 	font-size: 18pt;
