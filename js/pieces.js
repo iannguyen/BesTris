@@ -179,32 +179,26 @@ randomPiece = function() {
     case 1:
       piece = new ReversedLPiece();
       piece.color = 2;
-
       break;
     case 2:
       piece = new BlockPiece();
       piece.color = 3;
-
       break;
     case 3:
       piece = new LinePiece();
       piece.color = 4;
-
       break;
     case 4:
       piece = new TPiece();
       piece.color = 5;
-
       break;
     case 5:
       piece = new ZPiece();
       piece.color = 6;
-
       break;
     case 6:
       piece = new ReversedZPiece();
       piece.color = 7;
-
       break;
   }
 

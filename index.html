@@ -11,17 +11,29 @@
 
 <body>
 
-  <div id="game">
-    <canvas id="gameCanvas" width="320" height="640"></canvas>
-  </div>
-
   <div id="score">
     <p>
-      Lines:
+      Score:
+      <span id="points"></span>
+    </p>
+    <br/>
+    <p>
+      Lines Cleared:
       <span id="lines"></span>
     </p>
   </div>
 
+  <div id="game">
+    <canvas id="gameCanvas" width="320" height="640"></canvas>
+  </div>
+
+  <p>
+    Next Piece:
+    <span id="next-piece"></span>
+  </p>
+</div>
+
+  <script src="js/jquery-1.9.1.js"></script>
   <script type="text/javascript" src="js/view.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/game.js"></script>
@@ -30,8 +42,12 @@
   <script type="text/javascript" src="js/BulkImageLoader.js"></script>
 
   <script type="text/javascript">
+    $("body").keypress(function(e) {
+      if(e.which === 13) {
         var view = new Tetris.View();
         window.onload = view.onReady();
+      }
+      })
   </script>
 
 </body>

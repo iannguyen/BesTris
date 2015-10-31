@@ -1,8 +1,12 @@
 body {
 	background-color:#000;
+	height: 90vh;
 }
 
 #game {
+	top: 50%;
+	transform: translateY(-50%);
+	position: relative;
 	background-color:#8a8a8a;
 	width:320px;
 	height:640px;
@@ -11,11 +15,14 @@ body {
 }
 
 #score {
+	float: left;
 	font-size: 18pt;
 	font-family: sans-serif, verdana;
 	color: #fefefe;
 	width: 320px;
 	margin: 0 auto;
+	text-align: center;
+	width: 35%;
 }
 
 #directions p {
