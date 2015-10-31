@@ -33,7 +33,7 @@
       app.game.board.placePiece(currentPiece);
       dropped = false;
       currentPiece = randomPiece();
-    } else {  
+    } else {
       if (currentTime - previousTime > SPEED) {
         if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
           currentPiece.gridy += 1;
@@ -51,6 +51,8 @@
 
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);
+    } else {
+      ctx.drawImage(gameOverImg, 0,0,320,640);
     }
   };
 
@@ -81,6 +83,11 @@
         newState = 0;
       } else {
         newState = currentPiece.currentState+1;
+      }
+
+      if(currentPiece instanceof(LinePiece)) {
+      // debugger;
+      app.game.handleLineRotation(currentPiece, newState);
       }
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy, newState)) {
         currentPiece.currentState = newState;
@@ -148,4 +155,16 @@
     }
   };
 
+  Game.prototype.handleLineRotation = function (piece, newState) {
+    var line = piece;
+    if (line.currentState === 0 &&
+        app.game.board.validMove(line.gridx-1, line.gridy, newState)) {
+      line.gridx--;
+      line.currentState = newState;
+    } else if (line.currentState === 1 &&
+      app.game.board.validMove(line.gridx+1, line.gridy, newState)){
+      line.gridx++;
+      line.currentState = newState;
+    }
+  };
 })();

@@ -71,6 +71,10 @@
     }
 
   app.game.board.lineCheck();
+
+    if(piece.gridy < 0) {
+      gameOver = true;
+    }
   };
 
   Board.prototype.lineCheck = function() {
@@ -81,10 +85,8 @@
     for (var x = gridHeight; x >= 0; x--) {
       var fullRow = true;
       for (var y = gridWidth; y >= 0; y--) {
-        // debugger;
         if(this.grid[x][y] === 0) {
           fullRow = false;
-          // break;
         }
       }
       if(fullRow) {
@@ -94,7 +96,6 @@
       fullRow = true;
     }
   };
-
 
   Board.prototype.clearLine = function (rowNumber) {
     var gridWidth = COLUMNS - 1;
