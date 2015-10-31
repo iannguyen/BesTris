@@ -1,4 +1,10 @@
+html * {
+	font-family: 'Jura', sans-serif;
+}
 body {
+	object-fit: cover;
+	object-position: center;
+	background-image: url(http://res.cloudinary.com/dms46o1eu/image/upload/v1446256842/Tetris_Colorful_Wallpaper_Vvallpaper.Net_tekala.jpg);
 	background-color:#000;
 	height: 90vh;
 }
@@ -7,27 +13,28 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	position: relative;
-	background-color:#8a8a8a;
+	background-color: rgb(25,25,25);
 	width:320px;
 	height:640px;
 	margin:0 auto;
-	border: 2px solid #6e6e7b;
+	border: 25px ridge rgb(50,50,50);
 }
 
 #score {
 	float: left;
 	font-size: 18pt;
-	font-family: sans-serif, verdana;
 	color: #fefefe;
 	width: 320px;
 	margin: 0 auto;
 	text-align: center;
 	width: 35%;
+	top: 50%;
+	position: relative;
+	transform: translateY(-50%);
 }
 
 #directions p {
 	font-size: 14pt;
-	font-family: sans-serif, verdana;
 	color: #fefefe;
 	width: 320px;
 	margin: 0 auto;

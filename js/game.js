@@ -46,7 +46,9 @@
     }
 
   	ctx.clearRect(0, 0, 320, 640);
+    ctx.globalAlpha = 0.75;
     app.game.drawBoard();
+    ctx.globalAlpha = 1;
     app.game.drawPiece(currentPiece);
 
     if (gameOver === false) {

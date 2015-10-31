@@ -18,6 +18,7 @@ var app, canvas, ctx, blockImg, bgImg, gameOverImg, currentPiece, gameState, img
       imgLoader.loadImages();
       canvas = document.getElementById("gameCanvas");
       ctx = canvas.getContext("2d");
+      ctx.globalAlpha = 0.75;
       lineView = document.getElementById("lines");
 
       previousTime = currentTime = 0;
