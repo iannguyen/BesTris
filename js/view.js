@@ -19,7 +19,6 @@ var app, canvas, ctx, blockImg, bgImg, currentPiece, imgLoader, previousTime, cu
     };
 
     View.prototype.setup = function() {
-      debugger;
       app = new Tetris.App();
       app.setup(canvas);
     };

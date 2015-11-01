@@ -12,7 +12,6 @@
   };
 
   Game.prototype.startGame = function() {
-    debugger;
     gameOver = false;
     currentPiece = randomPiece();
     $(document).on("keydown", function(e) {
@@ -76,7 +75,6 @@
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);
     } else {
-      debugger;
       $("p#game-retry").removeClass("hidden").addClass("game-retry");
       $(document).off("keydown");
       $(document).on("keydown", function(e) {
@@ -104,7 +102,6 @@
         rowLine += 1;
       }
       currentPiece.gridy = rowLine;
-      // debugger;
       dropped = true;
       }
       break;
@@ -122,7 +119,6 @@
       }
 
       if(currentPiece instanceof(LinePiece)) {
-      // debugger;
       app.game.handleLineRotation(currentPiece, newState);
       }
       if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy, newState)) {
