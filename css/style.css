@@ -12,11 +12,11 @@ body {
 	object-position: center;
 	background-image: url(http://res.cloudinary.com/dms46o1eu/image/upload/v1446256842/Tetris_Colorful_Wallpaper_Vvallpaper.Net_tekala.jpg);
 	background-color:#000;
-	height: 90vh;
+	height: 100vh;
 }
 
 #game {
-	top: 40%;
+	top: 50%;
 	transform: translateY(-50%);
 	position: absolute;
 	background-color: rgb(25,25,25);
@@ -63,7 +63,7 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	width: 40%;
-	top: 30%;
+	top: 40%;
 	position: relative;
 	transform: translateY(-50%);
 }
@@ -80,7 +80,7 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	width: 40%;
-	top: 30%;
+	top: 40%;
 	position: relative;
 	transform: translateY(-50%);
 }
