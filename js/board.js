@@ -97,7 +97,9 @@
       }
       fullRow = true;
     }
+
     app.game.updateScore(fullRowCount);
+
     if(fullRowCount === 0) {
       $("#combo").text("");
     } else {

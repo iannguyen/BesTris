@@ -15,6 +15,7 @@
     gameOver = false;
     currentPiece = randomPiece();
     $(document).on("keydown", function(e) {
+
       app.game.playerInput(e);
     });
 
@@ -28,6 +29,14 @@
 
     window.requestAnimationFrame = raf;
     window.requestAnimationFrame(app.game.tick);
+  };
+
+  Game.prototype.restartGame = function () {
+    $(document).off("keydown");
+    $("#game-retry").attr("class", "hidden");
+    var view = new Tetris.View();
+    window.onload = view.onReady();
+    gameOver = false;
   };
 
   Game.prototype.updateScore = function (lineCount) {
@@ -68,9 +77,7 @@
     ctx.globalAlpha = 1;
     app.game.drawPiece(currentPiece);
 
-    $("#points").text(app.game.score.toString());
-    $("#lines").text(app.game.lines.toString());
-    $("#speed").text(app.game.speed.toFixed(2) + "ms");
+    app.game.renderStats();
 
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);
@@ -80,14 +87,16 @@
       $(document).on("keydown", function(e) {
         e.preventDefault();
         if(e.which === 13) {
-          $(document).off("keydown");
-          $("#game-retry").attr("class", "hidden");
-          var view = new Tetris.View();
-          window.onload = view.onReady();
-          gameOver = false;
+          app.game.restartGame();
         }
       });
     }
+  };
+
+  Game.prototype.renderStats = function () {
+    $("#points").text(app.game.score.toString());
+    $("#lines").text(app.game.lines.toString());
+    $("#speed").text(app.game.speed.toFixed(2) + "ms");
   };
 
   Game.prototype.playerInput = function(e) {
