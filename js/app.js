@@ -11,6 +11,7 @@ var SIZE = 32;
   var App = window.Tetris.App = function() {};
 
   App.prototype.setup = function(canvas) {
+    debugger;
     var board = new Tetris.Board();
     this.game = new Tetris.Game(board);
     this.game.startGame();

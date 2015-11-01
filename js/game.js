@@ -12,6 +12,7 @@
   };
 
   Game.prototype.startGame = function() {
+    debugger;
     gameOver = false;
     currentPiece = randomPiece();
     $(document).on("keydown", function(e) {
@@ -75,17 +76,17 @@
     if (gameOver === false) {
       requestAnimationFrame(app.game.tick);
     } else {
-      $("p#game-retry").removeClass("hidden");
-      $("p#game-retry").addClass("game-retry");
+      debugger;
+      $("p#game-retry").removeClass("hidden").addClass("game-retry");
       $(document).off("keydown");
       $(document).on("keydown", function(e) {
         e.preventDefault();
         if(e.which === 13) {
+          $(document).off("keydown");
           $("#game-retry").attr("class", "hidden");
           var view = new Tetris.View();
           window.onload = view.onReady();
           gameOver = false;
-          $(document).off("keydown");
         }
       });
     }
