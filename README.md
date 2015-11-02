@@ -1,5 +1,8 @@
 # BesTris
 
+[Live][tetris]
+[tetris]: https://iannguyen.github.io/tetris/index.html
+
 The best Tetris game you'll play.
 
 ### How To play
