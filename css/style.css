@@ -57,15 +57,15 @@ body {
 
 #info {
 	float: right;
-	font-size: 25px;
+	/*font-size: 25px;*/
 	color: white;
-	width: 320px;
 	margin: 0 auto;
 	text-align: center;
-	width: 40%;
+	width: 35%;
 	top: 40%;
 	position: relative;
 	transform: translateY(-50%);
+	font-size: 150%;
 }
 
 #info ul {
@@ -74,39 +74,37 @@ body {
 
 #stats {
 	float: left;
-	font-size: 25px;
+	font-size: 150%;
 	color: #fefefe;
-	width: 320px;
 	margin: 0 auto;
 	text-align: center;
-	width: 40%;
+	width: 35%;
 	top: 40%;
 	position: relative;
 	transform: translateY(-50%);
 }
 
 #directions p {
-	font-size: 14pt;
 	color: #fefefe;
-	width: 320px;
+	width: 35%;
 	margin: 0 auto;
 }
 
 #points {
 	color: lightgreen;
-	font-size: 30px;
+	/*font-size: 30px;*/
 }
 #lines {
 	color: yellow;
-	font-size: 30px;
+	/*font-size: 30px;*/
 }
 #speed {
 	color: lightblue;
-	font-size: 30px;
+	/*font-size: 30px;*/
 }
 #combo {
 	color: gold;
-	font-size: 50px;
+	font-size: 3vw;
 	position: absolute;
 	width: 100%;
 	left: 0;
