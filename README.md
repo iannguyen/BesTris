@@ -24,3 +24,9 @@ The best Tetris game you'll play.
 - Points are rewarded for every Termino you place, every line cleared, and bonus points per additional line cleared.
 
 JUST PLAY IT!
+
+### Todo
+
+- Allow moves to be chained together for additional points.
+- Add `next piece` canvas.
+- Add difficulty presets from the start.
