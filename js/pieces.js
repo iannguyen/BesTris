@@ -208,8 +208,8 @@ randomPiece = function() {
 
 // TESTING
 
-getLinePiece = function() {
-  var line = new LinePiece();
-  line.color = 4;
-  return line;
-};
+// getLinePiece = function() {
+//   var line = new LinePiece();
+//   line.color = 4;
+//   return line;
+// };
