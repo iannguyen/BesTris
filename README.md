@@ -1,8 +1,8 @@
-# BesTris
+# [BesTris][site]
 
 
-[Live][tetris]
-[tetris]: https://iannguyen.github.io/bestris/index.html
+[Live][site]
+[site]: https://iannguyen.github.io/bestris/index.html
 
 
 ![screenshot]
