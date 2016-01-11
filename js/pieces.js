@@ -205,11 +205,3 @@ randomPiece = function() {
   // piece.color = Math.floor(Math.floor(Math.random() * 8));
   return piece;
 };
-
-// TESTING
-
-// getLinePiece = function() {
-//   var line = new LinePiece();
-//   line.color = 4;
-//   return line;
-// };

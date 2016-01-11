@@ -27,7 +27,7 @@
     window.requestAnimationFrame(app.game.tick);
   };
 
-  Game.prototype.restartGame = function () {
+  Game.prototype.restartGame = function() {
     $(document).off("keydown");
     $("#game-retry").attr("class", "hidden");
     var view = new Tetris.View();
@@ -35,13 +35,13 @@
     gameOver = false;
   };
 
-  Game.prototype.updateScore = function (lineCount) {
+  Game.prototype.updateScore = function(lineCount) {
     if (lineCount > 0 &&
-       (lineCount + (app.game.lines % 5)) >= 5) {
+      (lineCount + (app.game.lines % 5)) >= 5) {
       app.game.speed /= 1.2;
     }
     if (lineCount > 1) {
-      app.game.score += (1000 * lineCount) + (500 * (lineCount-1));
+      app.game.score += (1000 * lineCount) + (500 * (lineCount - 1));
     } else {
       app.game.score += 250;
     }
@@ -57,7 +57,7 @@
       currentPiece = randomPiece();
     } else {
       if (currentTime - previousTime > app.game.speed) {
-        if(app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
+        if (app.game.board.validMove(currentPiece.gridx, currentPiece.gridy + 1, currentPiece.currentState)) {
           currentPiece.gridy += 1;
         } else {
           app.game.board.placePiece(currentPiece);
@@ -67,7 +67,7 @@
       }
     }
 
-  	ctx.clearRect(0, 0, 320, 640);
+    ctx.clearRect(0, 0, 320, 640);
     ctx.globalAlpha = 0.75;
     app.game.drawBoard();
     ctx.globalAlpha = 1;
@@ -82,14 +82,14 @@
       $(document).off("keydown");
       $(document).on("keydown", function(e) {
         e.preventDefault();
-        if(e.which === 13) {
+        if (e.which === 13) {
           app.game.restartGame();
         }
       });
     }
   };
 
-  Game.prototype.renderStats = function () {
+  Game.prototype.renderStats = function() {
     $("#points").text(app.game.score.toString());
     $("#lines").text(app.game.lines.toString());
     $("#speed").text(app.game.speed.toFixed(2) + "ms");
@@ -114,9 +114,9 @@
     for (var i = 0, width = piece.states[state].length; i < width; i++) {
       for (var j = 0, height = piece.states[state][i].length; j < height; j++) {
         if (piece.states[state][i][j] === 1 && drawY >= 0) {
-  				ctx.drawImage(blockImg,
-                        piece.color * SIZE, 0, SIZE, SIZE,
-                        drawX * SIZE, drawY * SIZE, SIZE, SIZE);
+          ctx.drawImage(blockImg,
+            piece.color * SIZE, 0, SIZE, SIZE,
+            drawX * SIZE, drawY * SIZE, SIZE, SIZE);
         }
         drawX += 1;
       }
@@ -125,11 +125,11 @@
     }
   };
 
-  Game.prototype.wallKick = function (piece, newState) {
+  Game.prototype.wallKick = function(piece, newState) {
     var shift = 0;
     if (piece.gridy < 19 && piece.gridx > 0) {
-      while(shift < COLUMNS) {
-        if(app.game.board.validMove(currentPiece.gridx-shift, currentPiece.gridy, newState)) {
+      while (shift < COLUMNS) {
+        if (app.game.board.validMove(currentPiece.gridx - shift, currentPiece.gridy, newState)) {
           piece.gridx -= shift;
           piece.currentState = newState;
           break;
@@ -142,14 +142,14 @@
     }
   };
 
-  Game.prototype.handleLineRotation = function (piece, newState) {
+  Game.prototype.handleLineRotation = function(piece, newState) {
     var line = piece;
     if (line.currentState === 0 &&
-        app.game.board.validMove(line.gridx-1, line.gridy, newState)) {
+      app.game.board.validMove(line.gridx - 1, line.gridy, newState)) {
       line.gridx--;
       line.currentState = newState;
     } else if (line.currentState === 1 &&
-      app.game.board.validMove(line.gridx+1, line.gridy, newState)){
+      app.game.board.validMove(line.gridx + 1, line.gridy, newState)) {
       line.gridx++;
       line.currentState = newState;
     }

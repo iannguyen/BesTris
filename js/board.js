@@ -19,7 +19,7 @@
     return grid;
   };
 
-  Board.prototype.validMove = function (x, y, state) {
+  Board.prototype.validMove = function(x, y, state) {
     var valid = true;
     var newxpos = x;
     var newypos = y;
@@ -28,14 +28,14 @@
     for (var i = 0; i < width; i++) {
       var height = currentPiece.states[state][i].length;
       for (var j = 0; j < height; j++) {
-        if(newxpos < 0 || newxpos >= COLUMNS) {
+        if (newxpos < 0 || newxpos >= COLUMNS) {
           valid = false;
           i = width;
           j = height;
         }
         if (this.grid[newypos] !== undefined &&
-            this.grid[newypos][newxpos] !== 0 &&
-            currentPiece.states[state][i] !== undefined && currentPiece.states[state][i][j] !== 0) {
+          this.grid[newypos][newxpos] !== 0 &&
+          currentPiece.states[state][i] !== undefined && currentPiece.states[state][i][j] !== 0) {
           valid = false;
           i = width;
           j = height;
@@ -45,7 +45,7 @@
       newxpos = x;
       newypos += 1;
 
-      if(newypos > ROWS) {
+      if (newypos > ROWS) {
         valid = false;
         i = width;
       }
@@ -71,9 +71,9 @@
       y += 1;
     }
 
-  app.game.board.lineCheck();
+    app.game.board.lineCheck();
 
-    if(piece.gridy < 0) {
+    if (piece.gridy < 0) {
       gameOver = true;
     }
   };
@@ -86,11 +86,11 @@
     for (var x = gridHeight; x >= 0; x--) {
       var fullRow = true;
       for (var y = gridWidth; y >= 0; y--) {
-        if(this.grid[x][y] === 0) {
+        if (this.grid[x][y] === 0) {
           fullRow = false;
         }
       }
-      if(fullRow) {
+      if (fullRow) {
         this.clearLine(x);
         fullRowCount++;
         x++;
@@ -100,20 +100,20 @@
 
     app.game.updateScore(fullRowCount);
 
-    if(fullRowCount === 0) {
+    if (fullRowCount === 0) {
       $("#combo").text("");
     } else {
       $("#combo").text(fullRowCount + " x COMBO!!!");
     }
   };
 
-  Board.prototype.clearLine = function (rowNumber) {
+  Board.prototype.clearLine = function(rowNumber) {
     var gridWidth = COLUMNS - 1;
     var rowLine = rowNumber;
 
     while (rowLine > 0) {
       for (var y = gridWidth; y >= 0; y--) {
-        this.grid[rowLine][y] = this.grid[rowLine-1][y];
+        this.grid[rowLine][y] = this.grid[rowLine - 1][y];
       }
       rowLine -= 1;
     }
