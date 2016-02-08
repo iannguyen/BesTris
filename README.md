@@ -38,7 +38,7 @@ JUST PLAY IT!
 [wall_kick]: ./images/wall_kick.png
 
 - I solved this with a `wallkick`. At first, a while loop is initiated. The `shift` variable represents the `x` coordinate amount to the left that the piece must shift over until it becomes a `valid_move`.
-- At the same time, to prevent the `termino` from flying across the board, `shift` stops incrementing as soon as a valid_move is possible while still being in the boundaries of the board. If a `valid_move` is not possible, the `termino` does not rotate.
+- At the same time, to prevent the `termino` from flying across the board, `shift` stops incrementing as soon as a `valid_move` is possible while still being in the boundaries of the board. If a `valid_move` is not possible, the `termino` does not rotate.
 
 ### Todo
 
