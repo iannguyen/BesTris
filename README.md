@@ -25,6 +25,21 @@ The best Tetris game you'll play.
 
 JUST PLAY IT!
 
+### Code Spotlight
+
+##### The WallKick
+
+![up_key]
+[up_key]: ./images/up_key.png
+
+- When pressing the `up_arrow` key, the `termino` will rotate and change its state. In the case when the `termino` is against the right wall, originally it wouldn't rotate because part of the piece would be outside the `board` boundaries, therefore not making it a `valid_move`.
+
+![wall_kick]
+[wall_kick]: ./images/wall_kick.png
+
+- I solved this with a `wallkick`. At first, a while loop is initiated. The `shift` variable represents the `x` coordinate amount to the left that the piece must shift over until it becomes a `valid_move`.
+- At the same time, to prevent the `termino` from flying across the board, `shift` stops incrementing as soon as a valid_move is possible while still being in the boundaries of the board. If a `valid_move` is not possible, the `termino` does not rotate.
+
 ### Todo
 
 - Allow moves to be chained together for additional points.
