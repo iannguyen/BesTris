@@ -30,7 +30,7 @@ JUST PLAY IT!
 ![up_key]
 [up_key]: ./images/up_key.png
 
-- When pressing the `up_arrow` key, the `termino` will rotate and change its state. In the case when the `termino` is against the right wall, originally it wouldn't rotate because part of the piece would be outside the `board` boundaries, therefore not making it a `valid_move`.
+- A feature many Tetris lovers take for granted is the ability to rotate the `terminos` when it is against the wall. When pressing the `up_arrow` key, the `termino` will rotate and change its state. Originally, when the `termino` is against the right wall, it wouldn't rotate because part of the piece would be outside the `board` boundaries, thus making it not a `valid_move`.
 
 ![wall_kick]
 [wall_kick]: ./images/wall_kick.png
