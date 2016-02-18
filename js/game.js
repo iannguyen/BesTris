@@ -128,7 +128,7 @@
   Game.prototype.wallKick = function(piece, newState) {
     var shift = 0;
     if (piece.gridy < 19 && piece.gridx > 0) {
-      while (shift < newState.length && canShift) {
+      while (shift < newState.length) {
         if (app.game.board.validMove(piece.gridx - shift, piece.gridy, newState)) {
           piece.gridx -= shift;
           piece.currentState = newState;
